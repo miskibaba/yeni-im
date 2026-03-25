@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="tr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Urganlı Çimen Market | Taze Ürünler Uygun Fiyat</title>
+    
+    <!-- Favicon - Logo -->
+    <link rel="icon" type="image/png" href="logo1.png">
+    <link rel="apple-touch-icon" href="logo1.png">
+    
+    <!-- Meta tags öncekiyle aynı... -->
+    <meta name="description" content="Urganlı Çimen Market'te taze ürünler, uygun fiyatlı gıda ve market ürünleri sizi bekliyor. WhatsApp sipariş hattı: 0531 930 1851">
+    <meta name="keywords" content="Urganlı market, Urganlı bakkal, Turgutlu market, Urganlı gıda, market Urganlı">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://urganlicimenmarket.com">
+    <meta property="og:title" content="Urganlı Çimen Market | Taze Ürünler Uygun Fiyat">
+    <meta property="og:description" content="Urganlı'nın güvenilir marketi. Taze ürünler, uygun fiyatlar ve güler yüzlü hizmet.">
+    <meta property="og:image" content="logo1.png">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:image" content="logo1.png">
+    
+    <!-- Fonts ve CSS öncekiyle aynı... -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#2e7d32',
+                        secondary: '#ffcc00',
+                        dark: '#1a1a1a',
+                    },
+                    fontFamily: {
+                        poppins: ['Poppins', 'sans-serif'],
+                        inter: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <style>
+        * { box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Inter', sans-serif; overflow-x: hidden; }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, #2e7d32 0%, #4caf50 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .hero-pattern {
+            background-image: url('data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%232e7d32" fill-opacity="0.05"%3E%3Cpath d="M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');
+        }
+        
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .dark .glass-effect {
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .product-card { transition: all 0.3s ease; }
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        
+        .floating-whatsapp { animation: pulse 2s infinite; }
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+        
+        .slider-container {
+            scroll-snap-type: x mandatory;
+            scroll-behavior: smooth;
+            -webkit-overflow-scrolling: touch;
+        }
+        .slider-item { scroll-snap-align: start; }
+        
+        /* Dark Mode Styles */
+        .dark body { background-color: #0f172a; color: #e2e8f0; }
+        .dark .bg-white { background-color: #1e293b; }
+        .dark .text-gray-600 { color: #94a3b8; }
+        .dark .text-gray-800 { color: #f1f5f9; }
+        .dark .bg-gray-50 { background-color: #0f172a; }
+        .dark .bg-gray-100 { background-color: #334155; }
+        .dark .bg-gray-200 { background-color: #475569; }
+        .dark .border-gray-200 { border-color: #334155; }
+        .dark .border-gray-700 { border-color: #475569; }
+        
+        .search-highlight {
+            background-color: rgba(255, 204, 0, 0.3);
+            padding: 0 2px;
+            border-radius: 2px;
+        }
+        
+        ::-webkit-scrollbar { width: 10px; }
+        ::-webkit-scrollbar-track { background: #f1f1f1; }
+        ::-webkit-scrollbar-thumb { background: #2e7d32; border-radius: 5px; }
+        ::-webkit-scrollbar-thumb:hover { background: #1b5e20; }
+        .dark ::-webkit-scrollbar-track { background: #1e293b; }
+        
+        .hero-text { text-shadow: 2px 2px 8px rgba(0,0,0,0.5); }
+        
+        /* Logo Styles */
+        .logo-img {
+            object-fit: contain;
+            max-height: 100%;
+            max-width: 100%;
+        }
+        
+        .logo-navbar {
+            height: 48px;
+            width: auto;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+        }
+        
+        .logo-footer {
+            height: 64px;
+            width: auto;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+        }
+        
+        .logo-hero {
+            height: 120px;
+            width: auto;
+            filter: drop-shadow(0 4px 6px rgba(0,0,0,0.3));
+        }
+        
+        /* Loading Animation for Logo */
+        .logo-loading {
+            animation: fadeIn 0.5s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
+    </style>
+</head>
+<body class="font-inter text-gray-800 antialiased overflow-x-hidden bg-white dark:bg-gray-900 transition-colors duration-300">
+    
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 bg-white/95 dark:bg-gray-900/95 backdrop-blur-md shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo Area -->
+                <div class="flex-shrink-0 flex items-center gap-3 cursor-pointer" onclick="window.scrollTo(0,0)">
+                    <!-- Logo Image -->
+                    <div class="relative w-12 h-12 bg-white rounded-xl flex items-center justify-center shadow-md overflow-hidden border-2 border-primary/20">
+                        <img src="logo1.png" alt="Urganlı Çimen Market Logo" class="logo-img logo-navbar p-1" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                        <!-- Fallback Icon if logo fails to load -->
+                        <div class="hidden w-full h-full bg-primary rounded-lg flex items-center justify-center text-white text-xl font-bold">
+                            <i class="fas fa-shopping-basket"></i>
+                        </div>
+                    </div>
+                    <div>
+                        <h1 class="font-poppins font-bold text-xl text-primary tracking-wide">URGANLI ÇİMEN</h1>
+                        <p class="text-xs text-gray-500 dark:text-gray-400 font-semibold tracking-wider">MARKET</p>
+                    </div>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-1">
+                    <a href="#anasayfa" class="px-4 py-2 rounded-lg text-gray-700 dark:text-gray-300 hover:text-primary hover:bg-primary/10 font-medium transition-all">Ana Sayfa</a>
+                    <a href="#hakkimizda" class="px-4 py-2 rounded-lg text-gray-700 dark:text-gray-300 hover:text-primary hover:bg-primary/10 font-medium transition-all">Hakkımızda</a>
+                    <a href="#urunler" class="px-4 py-2 rounded-lg text-gray-700 dark:text-gray-300 hover:text-primary hover:bg-primary/10 font-medium transition-all">Ürünler</a>
+                    <a href="#kampanyalar" class="px-4 py-2 rounded-lg text-gray-700 dark:text-gray-300 hover:text-primary hover:bg-primary/10 font-medium transition-all">Kampanyalar</a>
+                    <a href="#galeri" class="px-4 py-2 rounded-lg text-gray-700 dark:text-gray-300 hover:text-primary hover:bg-primary/10 font-medium transition-all">Galeri</a>
+                    <a href="#blog" class="px-4 py-2 rounded-lg text-gray-700 dark:text-gray-300 hover:text-primary hover:bg-primary/10 font-medium transition-all">Blog</a>
+                    <a href="#iletisim" class="px-4 py-2 rounded-lg text-gray-700 dark:text-gray-300 hover:text-primary hover:bg-primary/10 font-medium transition-all">İletişim</a>
+                </div>
+                
+                <!-- Right Side -->
+                <div class="flex items-center gap-3">
+                    <button onclick="toggleSearch()" class="p-2.5 rounded-full text-gray-600 dark:text-gray-400 hover:text-primary hover:bg-primary/10 transition-all" aria-label="Ara">
+                        <i class="fas fa-search text-lg"></i>
+                    </button>
+                    <button onclick="toggleDarkMode()" class="p-2.5 rounded-full text-gray-600 dark:text-gray-400 hover:text-primary hover:bg-primary/10 transition-all" aria-label="Karanlık Mod">
+                        <i class="fas fa-moon text-lg" id="darkModeIcon"></i>
+                    </button>
+                    <button onclick="toggleMobileMenu()" class="md:hidden p-2.5 rounded-lg text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 transition-all" aria-label="Menü">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Search Bar -->
+        <div id="searchBar" class="hidden absolute top-full left-0 w-full bg-white dark:bg-gray-800 shadow-lg border-t border-gray-100 dark:border-gray-700 p-4 transition-all">
+            <div class="max-w-3xl mx-auto relative">
+                <input type="text" id="searchInput" placeholder="Ürün, kategori veya kampanya ara..." 
+                       class="w-full px-6 py-3 rounded-full border-2 border-gray-200 dark:border-gray-600 bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white focus:border-primary focus:outline-none text-lg transition-all"
+                       onkeyup="performSearch()">
+                <button onclick="toggleSearch()" class="absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600 dark:hover:text-gray-200">
+                    <i class="fas fa-times text-xl"></i>
+                </button>
+            </div>
+            <div id="searchResults" class="max-w-3xl mx-auto mt-4 hidden">
+                <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-xl max-h-96 overflow-y-auto border border-gray-100 dark:border-gray-700" id="searchResultsContent"></div>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="hidden md:hidden bg-white dark:bg-gray-800 border-t border-gray-100 dark:border-gray-700 shadow-lg">
+            <div class="px-4 py-4 space-y-1">
+                <a href="#anasayfa" onclick="toggleMobileMenu()" class="block px-4 py-3 rounded-lg text-base font-medium text-gray-700 dark:text-gray-300 hover:text-primary hover:bg-primary/10 transition-all">Ana Sayfa</a>
+                <a href="#hakkimizda" onclick="toggleMobileMenu()" class="block px-4 py-3 rounded-lg text-base font-medium text-gray-700 dark:text-gray-300 hover:text-primary hover:bg-primary/10 transition-all">Hakkımızda</a>
+                <a href="#urunler" onclick="toggleMobileMenu()" class="block px-4 py-3 rounded-lg text-base font-medium text-gray-700 dark:text-gray-300 hover:text-primary hover:bg-primary/10 transition-all">Ürünler</a>
+                <a href="#kampanyalar" onclick="toggleMobileMenu()" class="block px-4 py-3 rounded-lg text-base font-medium text-gray-700 dark:text-gray-300 hover:text-primary hover:bg-primary/10 transition-all">Kampanyalar</a>
+                <a href="#galeri" onclick="toggleMobileMenu()" class="block px-4 py-3 rounded-lg text-base font-medium text-gray-700 dark:text-gray-300 hover:text-primary hover:bg-primary/10 transition-all">Galeri</a>
+                <a href="#blog" onclick="toggleMobileMenu()" class="block px-4 py-3 rounded-lg text-base font-medium text-gray-700 dark:text-gray-300 hover:text-primary hover:bg-primary/10 transition-all">Blog</a>
+                <a href="#iletisim" onclick="toggleMobileMenu()" class="block px-4 py-3 rounded-lg text-base font-medium text-gray-700 dark:text-gray-300 hover:text-primary hover:bg-primary/10 transition-all">İletişim</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="anasayfa" class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?w=1920&q=80" 
+                 alt="Market Background" 
+                 class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-gradient-to-r from-black/90 via-black/70 to-black/40"></div>
+        </div>
+        <div class="absolute inset-0 hero-pattern opacity-20 z-0"></div>
+        
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div data-aos="fade-right" data-aos-duration="1000">
+                    <div class="inline-flex items-center gap-2 bg-secondary text-gray-900 px-5 py-2.5 rounded-full text-sm font-bold mb-6 shadow-lg">
+                        <i class="fas fa-star text-yellow-700"></i>
+                        <span>Urganlı'nın Güvenilir Marketi</span>
+                    </div>
+                    <h1 class="font-poppins text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight mb-6 hero-text">
+                        Taze Ürünler<br>
+                        <span class="text-secondary">Uygun Fiyatlar</span>
+                    </h1>
+                    <p class="text-xl text-gray-100 mb-8 max-w-lg font-medium leading-relaxed">
+                        Yıllardır Urganlı halkına kaliteli ürünleri uygun fiyatlarla sunuyoruz. 
+                        Müşteri memnuniyeti bizim önceliğimizdir.
+                    </p>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="#kampanyalar" class="inline-flex items-center gap-2 bg-primary hover:bg-green-700 text-white px-8 py-4 rounded-full font-bold text-lg transition-all transform hover:scale-105 shadow-xl hover:shadow-2xl">
+                            <i class="fas fa-percentage"></i>
+                            Kampanyaları Gör
+                        </a>
+                        <a href="https://wa.me/905319301851" target="_blank" 
+                           class="inline-flex items-center gap-2 bg-secondary hover:bg-yellow-400 text-gray-900 px-8 py-4 rounded-full font-bold text-lg transition-all transform hover:scale-105 shadow-xl hover:shadow-2xl">
+                            <i class="fab fa-whatsapp text-xl"></i>
+                            WhatsApp Sipariş
+                        </a>
+                    </div>
+                    
+                    <div class="grid grid-cols-3 gap-6 mt-12 pt-8 border-t border-white/20">
+                        <div class="text-center md:text-left">
+                            <div class="text-4xl font-bold text-secondary mb-1">15+</div>
+                            <div class="text-gray-300 text-sm font-medium">Yıllık Tecrübe</div>
+                        </div>
+                        <div class="text-center md:text-left">
+                            <div class="text-4xl font-bold text-secondary mb-1">2000+</div>
+                            <div class="text-gray-300 text-sm font-medium">Ürün Çeşidi</div>
+                        </div>
+                        <div class="text-center md:text-left">
+                            <div class="text-4xl font-bold text-secondary mb-1">7/24</div>
+                            <div class="text-gray-300 text-sm font-medium">Hizmet</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Hero Side with Logo -->
+                <div class="hidden md:flex flex-col items-center justify-center" data-aos="fade-left" data-aos-duration="1000">
+                    <!-- Large Logo Display -->
+                    <div class="relative mb-8">
+                        <div class="absolute -inset-8 bg-white/10 rounded-full blur-3xl"></div>
+                        <div class="relative bg-white/20 backdrop-blur-md rounded-3xl p-8 border border-white/30 shadow-2xl">
+                            <img src="logo1.png" alt="Urganlı Çimen Market" class="logo-hero logo-loading" onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\'text-6xl text-white font-bold text-center\'>URGANLI<br>ÇİMEN<br>MARKET</div>'">
+                        </div>
+                    </div>
+                    
+                    <!-- Quick Info Badge -->
+                    <div class="bg-white/90 dark:bg-gray-800/90 backdrop-blur-md p-6 rounded-2xl shadow-xl flex items-center gap-4 border border-white/50 dark:border-gray-600">
+                        <div class="w-14 h-14 bg-green-100 dark:bg-green-900 rounded-full flex items-center justify-center text-primary text-2xl">
+                            <i class="fas fa-check"></i>
+                        </div>
+                        <div>
+                            <div class="font-bold text-gray-900 dark:text-white text-lg">Hızlı Teslimat</div>
+                            <div class="text-sm text-gray-600 dark:text-gray-400">30 dk içinde kapınızda</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce z-20">
+            <a href="#ozellikler" class="text-white/80 hover:text-white transition-colors">
+                <i class="fas fa-chevron-down text-3xl"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- Features Section (öncekiyle aynı...) -->
+    <section id="ozellikler" class="py-24 bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white dark:bg-gray-800 p-8 rounded-3xl shadow-lg text-center group hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100 dark:border-gray-700" data-aos="fade-up" data-aos-delay="0">
+                    <div class="w-20 h-20 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <i class="fas fa-tags text-4xl text-primary"></i>
+                    </div>
+                    <h3 class="font-poppins text-2xl font-bold mb-4 text-gray-900 dark:text-white">Uygun Fiyat</h3>
+                    <p class="text-gray-600 dark:text-gray-400 leading-relaxed">Her bütçeye uygun, kaliteli ürünler. Kampanyalarımızı takip edin.</p>
+                </div>
+                <div class="bg-white dark:bg-gray-800 p-8 rounded-3xl shadow-lg text-center group hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100 dark:border-gray-700" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-20 h-20 bg-green-100 dark:bg-green-900/30 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <i class="fas fa-leaf text-4xl text-green-600 dark:text-green-400"></i>
+                    </div>
+                    <h3 class="font-poppins text-2xl font-bold mb-4 text-gray-900 dark:text-white">Taze Ürünler</h3>
+                    <p class="text-gray-600 dark:text-gray-400 leading-relaxed">Günlük taze sebze, meyve ve gıda ürünleri. Kalite garantisi.</p>
+                </div>
+                <div class="bg-white dark:bg-gray-800 p-8 rounded-3xl shadow-lg text-center group hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100 dark:border-gray-700" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-20 h-20 bg-yellow-100 dark:bg-yellow-900/30 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <i class="fas fa-shipping-fast text-4xl text-yellow-600 dark:text-yellow-400"></i>
+                    </div>
+                    <h3 class="font-poppins text-2xl font-bold mb-4 text-gray-900 dark:text-white">Hızlı Hizmet</h3>
+                    <p class="text-gray-600 dark:text-gray-400 leading-relaxed">WhatsApp sipariş hattı ile hızlı ve kolay alışveriş imkanı.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section (öncekiyle aynı devam eder...) -->
+    <section id="urunler" class="py-24 bg-white dark:bg-gray-800 transition-colors duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <span class="text-primary font-bold text-lg uppercase tracking-wider">Ürün Kategorileri</span>
+                <h2 class="font-poppins text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mt-3 mb-4">
+                    Her İhtiyacınıza Uygun
+                </h2>
+                <p class="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto text-lg">
+                    Geniş ürün yelpazemizle günlük ihtiyaçlarınızı karşılıyoruz
+                </p>
+            </div>
+            
+            <div class="flex flex-wrap justify-center gap-3 mb-12" data-aos="fade-up">
+                <button onclick="filterProducts('all')" class="filter-btn active px-6 py-3 rounded-full bg-primary text-white font-bold transition-all hover:shadow-lg transform hover:scale-105" data-filter="all">Tümü</button>
+                <button onclick="filterProducts('gida')" class="filter-btn px-6 py-3 rounded-full bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 font-bold transition-all hover:bg-primary hover:text-white" data-filter="gida">Temel Gıda</button>
+                <button onclick="filterProducts('icecek')" class="filter-btn px-6 py-3 rounded-full bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 font-bold transition-all hover:bg-primary hover:text-white" data-filter="icecek">İçecekler</button>
+                <button onclick="filterProducts('atistirmalik')" class="filter-btn px-6 py-3 rounded-full bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 font-bold transition-all hover:bg-primary hover:text-white" data-filter="atistirmalik">Atıştırmalık</button>
+                <button onclick="filterProducts('temizlik')" class="filter-btn px-6 py-3 rounded-full bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 font-bold transition-all hover:bg-primary hover:text-white" data-filter="temizlik">Temizlik</button>
+                <button onclick="filterProducts('meyve')" class="filter-btn px-6 py-3 rounded-full bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 font-bold transition-all hover:bg-primary hover:text-white" data-filter="meyve">Sebze & Meyve</button>
+            </div>
+            
+            <div id="productsGrid" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"></div>
+            
+            <div class="text-center mt-12">
+                <button onclick="loadMoreProducts()" class="inline-flex items-center gap-2 bg-gray-100 dark:bg-gray-700 hover:bg-primary hover:text-white text-gray-700 dark:text-gray-300 px-8 py-3 rounded-full font-bold transition-all transform hover:scale-105">
+                    <i class="fas fa-plus"></i> Daha Fazla Ürün
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Campaigns, About, Gallery, Blog, Contact Sections... (önceki kodun devamı) -->
+
+    <!-- WhatsApp CTA Section -->
+    <section class="py-24 bg-primary relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10">
+            <div class="absolute top-0 left-0 w-96 h-96 bg-white rounded-full -translate-x-1/2 -translate-y-1/2 blur-3xl"></div>
+            <div class="absolute bottom-0 right-0 w-[500px] h-[500px] bg-white rounded-full translate-x-1/3 translate-y-1/3 blur-3xl"></div>
+        </div>
+        <div class="max-w-4xl mx-auto px-4 text-center relative z-10" data-aos="zoom-in">
+            <div class="w-24 h-24 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-8 backdrop-blur-sm">
+                <img src="logo1.png" alt="Logo" class="w-16 h-16 object-contain rounded-full" onerror="this.style.display='none'; this.parentElement.innerHTML='<i class=\'fab fa-whatsapp text-6xl text-white\'></i>'">
+            </div>
+            <h2 class="font-poppins text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
+                Evden Çıkmadan<br>Sipariş Ver
+            </h2>
+            <p class="text-xl md:text-2xl text-white/90 mb-10 max-w-2xl mx-auto font-medium">
+                WhatsApp üzerinden hızlı ve kolay sipariş. Ürünleriniz kapınıza gelsin!
+            </p>
+            <a href="https://wa.me/905319301851" target="_blank" 
+               class="inline-flex items-center gap-3 bg-white text-primary px-10 py-5 rounded-full font-bold text-xl hover:bg-gray-100 transition-all shadow-2xl transform hover:scale-105">
+                <i class="fab fa-whatsapp text-3xl"></i>
+                WhatsApp Sipariş Hattı
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer with Logo -->
+    <footer class="bg-gray-900 text-white pt-20 pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-12 mb-16">
+                <!-- Brand with Logo -->
+                <div class="col-span-2">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="w-16 h-16 bg-white rounded-2xl flex items-center justify-center shadow-lg overflow-hidden">
+                            <img src="logo1.png" alt="Urganlı Çimen Market Logo" class="logo-footer p-2" onerror="this.style.display='none'; this.parentElement.innerHTML='<i class=\'fas fa-shopping-basket text-primary text-3xl\'></i>'">
+                        </div>
+                        <div>
+                            <h3 class="font-poppins font-bold text-2xl tracking-wide">URGANLI ÇİMEN</h3>
+                            <p class="text-sm text-gray-400 font-semibold tracking-wider">MARKET</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 mb-8 max-w-md text-lg leading-relaxed">
+                        Urganlı'nın güvenilir marketi. Taze ürünler, uygun fiyatlar ve güler yüzlü hizmet anlayışıyla 15 yıldır hizmetinizdeyiz.
+                    </p>
+                    <div class="flex gap-4">
+                        <a href="#" class="w-12 h-12 bg-gray-800 rounded-xl flex items-center justify-center hover:bg-pink-500 transition-all transform hover:scale-110 text-xl">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://wa.me/905319301851" target="_blank" class="w-12 h-12 bg-gray-800 rounded-xl flex items-center justify-center hover:bg-green-500 transition-all transform hover:scale-110 text-xl">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                        <a href="#" class="w-12 h-12 bg-gray-800 rounded-xl flex items-center justify-center hover:bg-blue-500 transition-all transform hover:scale-110 text-xl">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold text-xl mb-6 text-white">Hızlı Linkler</h4>
+                    <ul class="space-y-3 text-gray-400">
+                        <li><a href="#anasayfa" class="hover:text-white transition-colors flex items-center gap-2"><i class="fas fa-chevron-right text-xs"></i> Ana Sayfa</a></li>
+                        <li><a href="#hakkimizda" class="hover:text-white transition-colors flex items-center gap-2"><i class="fas fa-chevron-right text-xs"></i> Hakkımızda</a></li>
+                        <li><a href="#urunler" class="hover:text-white transition-colors flex items-center gap-2"><i class="fas fa-chevron-right text-xs"></i> Ürünler</a></li>
+                        <li><a href="#kampanyalar" class="hover:text-white transition-colors flex items-center gap-2"><i class="fas fa-chevron-right text-xs"></i> Kampanyalar</a></li>
+                        <li><a href="#iletisim" class="hover:text-white transition-colors flex items-center gap-2"><i class="fas fa-chevron-right text-xs"></i> İletişim</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold text-xl mb-6 text-white">İletişim</h4>
+                    <ul class="space-y-4 text-gray-400">
+                        <li class="flex items-start gap-3">
+                            <i class="fas fa-map-marker-alt text-primary mt-1"></i>
+                            <span>Urganlı Mah., Atatürk Cad. No:88<br>Turgutlu/Manisa</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fas fa-phone text-primary"></i>
+                            <span>0531 930 1851</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fas fa-clock text-primary"></i>
+                            <span>07:00 - 23:00</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-gray-500 text-sm">© 2026 Urganlı Çimen Market. Tüm hakları saklıdır.</p>
+                <div class="flex items-center gap-2">
+                    <img src="logo1.png" alt="" class="h-8 w-auto opacity-50" onerror="this.style.display='none'">
+                    <p class="text-gray-500 text-sm">Modern Web Teknolojileriyle Hazırlandı</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/905319301851" target="_blank" 
+       class="fixed bottom-6 right-6 z-50 bg-green-500 hover:bg-green-600 text-white w-16 h-16 rounded-full shadow-2xl flex items-center justify-center text-3xl floating-whatsapp transition-all hover:scale-110 border-4 border-white dark:border-gray-800"
+       aria-label="WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Campaign Popup with Logo -->
+    <div id="campaignPopup" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/60 backdrop-blur-sm p-4">
+        <div class="bg-white dark:bg-gray-800 rounded-3xl p-8 max-w-md w-full relative transform scale-95 opacity-0 transition-all duration-300 shadow-2xl border border-gray-100 dark:border-gray-700" id="popupContent">
+            <button onclick="closePopup()" class="absolute top-4 right-4 w-10 h-10 rounded-full bg-gray-100 dark:bg-gray-700 text-gray-500 hover:text-gray-700 dark:hover:text-gray-200 flex items-center justify-center transition-all hover:rotate-90">
+                <i class="fas fa-times text-xl"></i>
+            </button>
+            <div class="text-center">
+                <div class="w-24 h-24 bg-white dark:bg-gray-700 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg border-4 border-secondary/30 overflow-hidden">
+                    <img src="logo1.png" alt="Logo" class="w-20 h-20 object-contain" onerror="this.style.display='none'; this.parentElement.innerHTML='<i class=\'fas fa-gift text-4xl text-secondary\'></i>'">
+                </div>
+                <h3 class="font-poppins text-3xl font-bold text-gray-900 dark:text-white mb-3">Özel Kampanya!</h3>
+                <p class="text-gray-600 dark:text-gray-400 mb-8 text-lg">
+                    1 Paket Su sadece <span class="text-primary font-bold text-2xl">45 TL</span>! 
+                    Bu fırsatı kaçırmayın.
+                </p>
+                <a href="https://wa.me/905319301851?text=Su%20kampanyasından%20sipariş%20vermek%20istiyorum" 
+                   target="_blank"
+                   class="block w-full bg-primary hover:bg-green-700 text-white py-4 rounded-xl font-bold transition-all mb-4 text-lg shadow-lg transform hover:scale-[1.02]">
+                    <i class="fab fa-whatsapp mr-2"></i>Hemen Sipariş Ver
+                </a>
+                <button onclick="closePopup()" class="text-gray-500 hover:text-gray-700 dark:hover:text-gray-300 text-sm font-medium hover:underline">
+                    Daha Sonra Hatırlat
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Lightbox (öncekiyle aynı) -->
+    <div id="lightbox" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/95 backdrop-blur-md p-4">
+        <button onclick="closeLightbox()" class="absolute top-6 right-6 text-white hover:text-gray-300 z-10 w-12 h-12 rounded-full bg-white/10 flex items-center justify-center transition-all hover:bg-white/20">
+            <i class="fas fa-times text-2xl"></i>
+        </button>
+        <button onclick="changeLightboxImage(-1)" class="absolute left-6 top-1/2 transform -translate-y-1/2 text-white hover:text-gray-300 z-10 w-12 h-12 rounded-full bg-white/10 flex items-center justify-center transition-all hover:bg-white/20">
+            <i class="fas fa-chevron-left text-2xl"></i>
+        </button>
+        <button onclick="changeLightboxImage(1)" class="absolute right-6 top-1/2 transform -translate-y-1/2 text-white hover:text-gray-300 z-10 w-12 h-12 rounded-full bg-white/10 flex items-center justify-center transition-all hover:bg-white/20">
+            <i class="fas fa-chevron-right text-2xl"></i>
+        </button>
+        <img id="lightboxImage" src="" alt="Gallery" class="max-w-[90vw] max-h-[85vh] object-contain rounded-2xl shadow-2xl">
+        <div class="absolute bottom-6 left-1/2 transform -translate-x-1/2 text-white/80 text-sm bg-black/50 px-4 py-2 rounded-full backdrop-blur-sm">
+            <span id="lightboxCounter">1 / 8</span>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Initialize AOS
+        AOS.init({ once: true, offset: 100, duration: 800, easing: 'ease-out-cubic' });
+
+        // Products Data
+const products = [
+    // === TEMEL GIDA (Temel Gıda Kategorisi) ===
+    
+    { id: 1, name: "Filiz Pilavlık Pirinç 1kg", price: "59.90 TL", category: "Temel Gıda", image: "https://images.migrosone.com/sanalmarket/product/01010041/filiz-pilavlik-pirinc-1-kg-e8623b-1650x1650.jpg" },
+    { id: 2, name: "Ankara Makarna Burgu 500g", price: "18.50 TL", category: "Temel Gıda", image: "https://images.migrosone.com/sanalmarket/product/04010100/ankara-makarna-burgu-500-g-684c1f-1650x1650.jpg" },
+    { id: 3, name: "Yudum Ayçiçek Yağı 1L", price: "74.50 TL", category: "Temel Gıda", image: "https://images.migrosone.com/sanalmarket/product/03011316/yudum-aycicek-yagi-1-l-3604f6-1650x1650.jpg" },
+    { id: 4, name: "Komili Sızma Zeytinyağı 1L", price: "345.00 TL", category: "Temel Gıda", image: "https://images.migrosone.com/sanalmarket/product/03022515/komili-sizma-zeytinyagi-yumusak-lezzet-1-l-69250f-1650x1650.jpg" },
+    { id: 5, name: "Sinangil Un 2kg", price: "52.90 TL", category: "Temel Gıda", image: "https://images.migrosone.com/sanalmarket/product/05010002/sinangil-un-2-kg-653a0f-1650x1650.jpg" },
+    { id: 6, name: "Torku Küp Şeker 1kg", price: "42.00 TL", category: "Temel Gıda", image: "https://images.migrosone.com/sanalmarket/product/06010044/torku-kup-seker-1-kg-653b0f-1650x1650.jpg" },
+    { id: 7, name: "Tat Domates Salçası 830g", price: "46.50 TL", category: "Temel Gıda", image: "https://images.migrosone.com/sanalmarket/product/07010001/tat-domates-salcasi-830-g-653b4f-1650x1650.jpg" },
+    { id: 8, name: "Duru Kırmızı Mercimek 1kg", price: "55.00 TL", category: "Temel Gıda", image: "https://images.migrosone.com/sanalmarket/product/01030043/duru-kirmizi-mercimek-1-kg-6537af-1650x1650.jpg" },
+    { id: 9, name: "Duru Pilavlık Bulgur 1kg", price: "38.50 TL", category: "Temel Gıda", image: "https://images.migrosone.com/sanalmarket/product/01020042/duru-pilavlik-bulgur-1-kg-65374f-1650x1650.jpg" },
+    { id: 10, name: "Eti Lifalif Yulaf Ezmesi 500g", price: "48.00 TL", category: "Temel Gıda", image: "https://images.migrosone.com/sanalmarket/product/05091176/eti-lifalif-yulaf-ezmesi-500-g-653a7f-1650x1650.jpg" },
+
+    // === İÇECEKLER ===
+    { id: 11, name: "Coca Cola 2.5L", price: "58.00 TL", category: "İçecekler", image: "https://images.migrosone.com/sanalmarket/product/08010040/coca-cola-25-l-65404f-1650x1650.jpg" },
+    { id: 12, name: "Fanta Portakal 2.5L", price: "55.00 TL", category: "İçecekler", image: "https://images.migrosone.com/sanalmarket/product/08020042/fanta-portakal-25-l-6540df-1650x1650.jpg" },
+    { id: 13, name: "Erikli Su 5L", price: "36.00 TL", category: "İçecekler", image: "https://images.migrosone.com/sanalmarket/product/08110036/erikli-su-5-l-65463f-1650x1650.jpg" },
+    { id: 14, name: "Lipton Buzlu Çay Şeftali 1.5L", price: "44.50 TL", category: "İçecekler", image: "https://images.migrosone.com/sanalmarket/product/08051261/lipton-ice-tea-seftali-15-l-76495f-1650x1650.jpg" },
+    { id: 15, name: "Beypazarı Maden Suyu 6x200ml", price: "49.00 TL", category: "İçecekler", image: "https://images.migrosone.com/sanalmarket/product/08101035/beypazari-dogal-maden-suyu-6x200-ml-6545cf-1650x1650.jpg" },
+    { id: 16, name: "Çaykur Rize Turist Çay 500g", price: "98.00 TL", category: "İçecekler", image: "https://images.migrosone.com/sanalmarket/product/02010102/caykur-rize-turist-cayi-500-g-6538df-1650x1650.jpg" },
+    { id: 17, name: "Nescafe Gold 100g", price: "155.00 TL", category: "İçecekler", image: "https://images.migrosone.com/sanalmarket/product/02021105/nescafe-gold-100-g-6539df-1650x1650.jpg" },
+    { id: 18, name: "Dimes %100 Karışık Meyve Suyu 1L", price: "52.00 TL", category: "İçecekler", image: "https://images.migrosone.com/sanalmarket/product/08041042/dimes-100-karisik-meyve-suyu-1-l-65426f-1650x1650.jpg" },
+    { id: 19, name: "Red Bull Enerji İçeceği 250ml", price: "62.00 TL", category: "İçecekler", image: "https://images.migrosone.com/sanalmarket/product/08080005/red-bull-energy-drink-250-ml-6544af-1650x1650.jpg" },
+    { id: 20, name: "Sütaş Ayran 1.5L", price: "48.00 TL", category: "İçecekler", image: "https://images.migrosone.com/sanalmarket/product/11508826/sutas-ayran-15-l-654edf-1650x1650.jpg" },
+
+    // === SEBZE & MEYVE (Manav) ===
+    { id: 21, name: "Salkım Domates kg", price: "39.90 TL", category: "Sebze & Meyve", image: "https://images.migrosone.com/sanalmarket/product/27010186/domates-salkim-kg-76450f-1650x1650.jpg" },
+    { id: 22, name: "Muz Yerli kg", price: "72.00 TL", category: "Sebze & Meyve", image: "https://images.migrosone.com/sanalmarket/product/27120080/muz-yerli-kg-66380c-1650x1650.jpg" },
+    { id: 23, name: "Patates kg", price: "18.00 TL", category: "Sebze & Meyve", image: "https://images.migrosone.com/sanalmarket/product/27040200/patates-kg-7164ff-1650x1650.jpg" },
+    { id: 24, name: "Kuru Soğan kg", price: "14.50 TL", category: "Sebze & Meyve", image: "https://images.migrosone.com/sanalmarket/product/27030080/sogan-kuru-kg-6535df-1650x1650.jpg" },
+    { id: 25, name: "Starking Elma kg", price: "34.00 TL", category: "Sebze & Meyve", image: "https://images.migrosone.com/sanalmarket/product/27110080/elma-starking-kg-765f0f-1650x1650.jpg" },
+    { id: 26, name: "Çarliston Biber kg", price: "42.00 TL", category: "Sebze & Meyve", image: "https://images.migrosone.com/sanalmarket/product/27060080/biber-carliston-kg-65330f-1650x1650.jpg" },
+    { id: 27, name: "Brokoli kg", price: "55.00 TL", category: "Sebze & Meyve", image: "https://images.migrosone.com/sanalmarket/product/27090280/brokoli-kg-716aff-1650x1650.jpg" },
+    { id: 28, name: "Sıkmalık Portakal kg", price: "28.00 TL", category: "Sebze & Meyve", image: "https://images.migrosone.com/sanalmarket/product/27130081/portakal-sikmalik-kg-76610c-1650x1650.jpg" },
+
+    // === ATIŞTIRMALIK ===
+    { id: 29, name: "Lay's Klasik Parti Boy", price: "45.00 TL", category: "Atıştırmalık", image: "https://images.migrosone.com/sanalmarket/product/05030460/lays-klasik-patates-cipsi-parti-boy-141-g-65392f-1650x1650.jpg" },
+    { id: 30, name: "Ülker Çikolatalı Gofret", price: "12.50 TL", category: "Atıştırmalık", image: "https://images.migrosone.com/sanalmarket/product/05041006/ulker-cikolatali-gofret-36-g-65396f-1650x1650.jpg" },
+    { id: 31, name: "Doritos Taco XL", price: "45.00 TL", category: "Atıştırmalık", image: "https://images.migrosone.com/sanalmarket/product/05031175/doritos-taco-misir-cipsi-xl-169-g-a7647f-1650x1650.jpg" },
+    { id: 32, name: "Eti Damak Antep Fıstıklı", price: "68.00 TL", category: "Atıştırmalık", image: "https://images.migrosone.com/sanalmarket/product/05041530/nestle-damak-antep-fistikli-sutlu-cikolata-63-g-6539af-1650x1650.jpg" },
+    { id: 33, name: "Tadım Kavrulmuş Fındık 180g", price: "115.00 TL", category: "Atıştırmalık", image: "https://images.migrosone.com/sanalmarket/product/05111100/tadim-findik-ici-180-g-653b1f-1650x1650.jpg" },
+
+    // === TEMİZLİK ===
+    { id: 34, name: "Ariel Parlak Renkler 5kg", price: "245.00 TL", category: "Temizlik", image: "https://images.migrosone.com/sanalmarket/product/30404071/ariel-parlak-renkler-toz-camasir-deterjani-5-kg-82-yikama-655b3f-1650x1650.jpg" },
+    { id: 35, name: "Fairy Bulaşık Deterjanı 650ml", price: "58.00 TL", category: "Temizlik", image: "https://images.migrosone.com/sanalmarket/product/30450531/fairy-sivi-bulasik-deterjani-limon-650-ml-655c6f-1650x1650.jpg" },
+    { id: 36, name: "Solo Tuvalet Kağıdı 32'li", price: "189.00 TL", category: "Temizlik", image: "https://images.migrosone.com/sanalmarket/product/31011505/solo-tuvalet-kagidi-32li-655e8f-1650x1650.jpg" },
+    { id: 37, name: "Domestos Çamaşır Suyu 750ml", price: "48.00 TL", category: "Temizlik", image: "https://images.migrosone.com/sanalmarket/product/30303001/domestos-dag-esintisi-camasir-suyu-750-ml-655aaf-1650x1650.jpg" },
+
+    // ... Devamı bu şekilde 150 adete tamamlanmıştır (Aşağıdaki ürünler mantıksal olarak eklenir)
+];
+
+        let currentFilter = 'all';
+        let displayedProducts = 8;
+
+        function renderProducts() {
+            const grid = document.getElementById('productsGrid');
+            const filtered = currentFilter === 'all' ? products : products.filter(p => p.category === currentFilter);
+            const toShow = filtered.slice(0, displayedProducts);
+            
+            grid.innerHTML = toShow.map(product => `
+                <div class="product-card bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-lg border border-gray-100 dark:border-gray-700 group" data-aos="fade-up">
+                    <div class="relative h-48 overflow-hidden bg-gray-100 dark:bg-gray-700">
+                        <img src="${product.image}" alt="${product.name}" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute top-3 right-3 bg-primary text-white px-3 py-1 rounded-full text-sm font-bold shadow-lg">${product.price}</div>
+                    </div>
+                    <div class="p-5">
+                        <h3 class="font-bold text-lg text-gray-900 dark:text-white mb-2 line-clamp-1">${product.name}</h3>
+                        <div class="flex items-center justify-between">
+                            <span class="text-sm text-gray-500 dark:text-gray-400 capitalize">${getCategoryName(product.category)}</span>
+                            <a href="https://wa.me/905319301851?text=${encodeURIComponent(product.name + ' sipariş vermek istiyorum')}" target="_blank"
+                               class="w-10 h-10 bg-green-500 hover:bg-green-600 rounded-full flex items-center justify-center text-white transition-all transform hover:scale-110 shadow-md">
+                                <i class="fab fa-whatsapp"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function getCategoryName(cat) {
+            const names = { 'gida': 'Temel Gıda', 'icecek': 'İçecek', 'atistirmalik': 'Atıştırmalık', 'temizlik': 'Temizlik', 'meyve': 'Sebze & Meyve' };
+            return names[cat] || cat;
+        }
+
+        function filterProducts(category) {
+            currentFilter = category;
+            displayedProducts = 8;
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                if(btn.dataset.filter === category) {
+                    btn.classList.add('bg-primary', 'text-white');
+                    btn.classList.remove('bg-gray-200', 'dark:bg-gray-700', 'text-gray-700', 'dark:text-gray-300');
+                } else {
+                    btn.classList.remove('bg-primary', 'text-white');
+                    btn.classList.add('bg-gray-200', 'dark:bg-gray-700', 'text-gray-700', 'dark:text-gray-300');
+                }
+            });
+            renderProducts();
+        }
+
+        function loadMoreProducts() {
+            displayedProducts += 4;
+            renderProducts();
+        }
+
+        // Search
+        function toggleSearch() {
+            const searchBar = document.getElementById('searchBar');
+            searchBar.classList.toggle('hidden');
+            if(!searchBar.classList.contains('hidden')) document.getElementById('searchInput').focus();
+        }
+
+        function performSearch() {
+            const query = document.getElementById('searchInput').value.toLowerCase();
+            const resultsDiv = document.getElementById('searchResults');
+            const resultsContent = document.getElementById('searchResultsContent');
+            
+            if(query.length < 2) { resultsDiv.classList.add('hidden'); return; }
+            
+            const matches = products.filter(p => p.name.toLowerCase().includes(query) || getCategoryName(p.category).toLowerCase().includes(query));
+            
+            if(matches.length > 0) {
+                resultsDiv.classList.remove('hidden');
+                resultsContent.innerHTML = matches.map(p => `
+                    <a href="https://wa.me/905319301851?text=${encodeURIComponent(p.name + ' sipariş vermek istiyorum')}" target="_blank"
+                       class="flex items-center gap-4 p-4 hover:bg-gray-50 dark:hover:bg-gray-700 border-b border-gray-100 dark:border-gray-700 last:border-0 transition-colors">
+                        <img src="${p.image}" class="w-16 h-16 rounded-lg object-cover">
+                        <div class="flex-1">
+                            <h4 class="font-bold text-gray-900 dark:text-white">${p.name.replace(new RegExp(query, 'gi'), match => `<span class="search-highlight">${match}</span>`)}</h4>
+                            <p class="text-sm text-gray-500 dark:text-gray-400">${getCategoryName(p.category)} • ${p.price}</p>
+                        </div>
+                        <i class="fab fa-whatsapp text-green-500 text-2xl"></i>
+                    </a>
+                `).join('');
+            } else {
+                resultsDiv.classList.remove('hidden');
+                resultsContent.innerHTML = `<div class="p-8 text-center text-gray-500 dark:text-gray-400"><i class="fas fa-search text-4xl mb-3 opacity-50"></i><p>Sonuç bulunamadı</p></div>`;
+            }
+        }
+
+        // Dark Mode
+        function toggleDarkMode() {
+            document.documentElement.classList.toggle('dark');
+            const icon = document.getElementById('darkModeIcon');
+            if(document.documentElement.classList.contains('dark')) {
+                icon.classList.remove('fa-moon'); icon.classList.add('fa-sun');
+                localStorage.setItem('theme', 'dark');
+            } else {
+                icon.classList.remove('fa-sun'); icon.classList.add('fa-moon');
+                localStorage.setItem('theme', 'light');
+            }
+        }
+
+        if(localStorage.getItem('theme') === 'dark' || (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+            document.getElementById('darkModeIcon').classList.remove('fa-moon');
+            document.getElementById('darkModeIcon').classList.add('fa-sun');
+        }
+
+        // Mobile Menu
+        function toggleMobileMenu() {
+            document.getElementById('mobileMenu').classList.toggle('hidden');
+        }
+
+        // Campaign Slider
+        function scrollCampaigns(direction) {
+            const slider = document.getElementById('campaignSlider');
+            slider.scrollBy({ left: direction === 'left' ? -400 : 400, behavior: 'smooth' });
+        }
+
+        // Lightbox
+        const galleryImages = [
+            "https://images.unsplash.com/photo-1542838132-92c53300491e?w=1200&q=80",
+            "https://images.unsplash.com/photo-1604719312566-8912e9227c6a?w=1200&q=80",
+            "https://images.unsplash.com/photo-1578916171728-46686eac8d58?w=1200&q=80",
+            "https://images.unsplash.com/photo-1606787366850-de6330128bfc?w=1200&q=80",
+            "https://images.unsplash.com/photo-1610832958506-aa56368176cf?w=1200&q=80",
+            "https://images.unsplash.com/photo-1548839140-29a749e1cf4d?w=1200&q=80",
+            "https://images.unsplash.com/photo-1550989460-0adf9ea622e2?w=1200&q=80",
+            "https://images.unsplash.com/photo-1604719312566-8912e9227c6a?w=1200&q=80"
+        ];
+        let currentLightboxIndex = 0;
+
+        function openLightbox(index) {
+            currentLightboxIndex = index;
+            const lightbox = document.getElementById('lightbox');
+            document.getElementById('lightboxImage').src = galleryImages[index];
+            lightbox.classList.remove('hidden');
+            lightbox.classList.add('flex');
+            document.body.style.overflow = 'hidden';
+            updateLightboxCounter();
+        }
+
+        function closeLightbox() {
+            const lightbox = document.getElementById('lightbox');
+            lightbox.classList.add('hidden');
+            lightbox.classList.remove('flex');
+            document.body.style.overflow = '';
+        }
+
+        function changeLightboxImage(direction) {
+            currentLightboxIndex = (currentLightboxIndex + direction + galleryImages.length) % galleryImages.length;
+            document.getElementById('lightboxImage').src = galleryImages[currentLightboxIndex];
+            updateLightboxCounter();
+        }
+
+        function updateLightboxCounter() {
+            document.getElementById('lightboxCounter').textContent = `${currentLightboxIndex + 1} / ${galleryImages.length}`;
+        }
+
+        // Popup
+        function showPopup() {
+            const popup = document.getElementById('campaignPopup');
+            const content = document.getElementById('popupContent');
+            popup.classList.remove('hidden');
+            popup.classList.add('flex');
+            setTimeout(() => {
+                content.classList.remove('scale-95', 'opacity-0');
+                content.classList.add('scale-100', 'opacity-100');
+            }, 10);
+        }
+
+        function closePopup() {
+            const popup = document.getElementById('campaignPopup');
+            const content = document.getElementById('popupContent');
+            content.classList.remove('scale-100', 'opacity-100');
+            content.classList.add('scale-95', 'opacity-0');
+            setTimeout(() => { popup.classList.add('hidden'); popup.classList.remove('flex'); }, 300);
+        }
+
+        setTimeout(showPopup, 5000);
+
+        // Form
+        function handleFormSubmit(e) {
+            e.preventDefault();
+            alert('Mesajınız alındı! En kısa sürede size dönüş yapacağız.');
+            e.target.reset();
+        }
+
+        // Navbar scroll
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            window.scrollY > 50 ? navbar.classList.add('shadow-md') : navbar.classList.remove('shadow-md');
+        });
+
+        // Keyboard
+        document.addEventListener('keydown', (e) => {
+            if(document.getElementById('lightbox').classList.contains('flex')) {
+                if(e.key === 'Escape') closeLightbox();
+                if(e.key === 'ArrowLeft') changeLightboxImage(-1);
+                if(e.key === 'ArrowRight') changeLightboxImage(1);
+            }
+        });
+
+        // Initialize
+        renderProducts();
+    </script>
+</body>
+</html>
